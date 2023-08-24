@@ -1,0 +1,41 @@
+button {
+  width: 200px;
+  height: 44px;
+  border: 2px solid #49df97;
+  background-color: #49df97;
+  border-radius: 60px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 26px;
+  animation: noHover 0.5s forwards;
+}
+
+button.invert {
+  background-color: white;
+  animation: onHover 0.5s forwards;
+}
+
+button:hover {
+  animation: onHover 0.5s forwards;
+}
+
+button.invert:hover {
+  animation: noHover 0.5s forwards;
+}
+
+@keyframes onHover {
+  0% {
+    background-color: #49df97;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+@keyframes noHover {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: #49df97;
+  }
+}

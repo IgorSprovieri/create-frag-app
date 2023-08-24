@@ -1,0 +1,31 @@
+h1 {
+  font-size: 120px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
+.green {
+  color: #49df97;
+}
+
+.gray {
+  color: #a9a9a9;
+}
+
+h2 {
+  font-size: 56px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: normal;
+  margin: 0px;
+  padding: 0px;
+}
+
+.green {
+  color: #49df97;
+}
+
+.gray {
+  color: #a9a9a9;
+}

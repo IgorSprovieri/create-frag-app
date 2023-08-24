@@ -1,0 +1,19 @@
+{
+  "name": "create-frag-app",
+  "version": "0.1.7",
+  "description": "Start app using frag-components",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/frag-router/index.js"
+  },
+  "author": "Igor Sprovieri",
+  "license": "ISC",
+  "dependencies": {
+    "frag-components": "^0.1.5",
+    "frag-router": "^0.1.1",
+    "mime": "^3.0.0"
+  },
+  "bin": {
+    "create-frag-app": "./bin.js"
+  }
+}
