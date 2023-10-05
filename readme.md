@@ -11,11 +11,34 @@ npx create-frag-app my-app
 ## Dependencies
 
 - Node.js ([nodejs.org/en](https://nodejs.org/en))
-- Frag Router ([www.npmjs.com/package/frag-router](https://www.npmjs.com/package/frag-router))
 
 ## Example
 
-![Frag Components Example](./public/example.svg)
+```js
+export class button {
+  props = ["click"];
+  style = ["./components/button/style.css"];
+
+  html(props) {
+    const { click, children } = props;
+
+    return `<button onclick="${click}"›S{children}</button>`;
+  }
+}
+```
+
+```html
+<script>
+  const clickButton = () => {
+    console.log("Hello!");
+  };
+</script>
+<body>
+  <app-button click="clickButton()">Click Me</app-button>
+</body>
+
+<!-- // On click app-button print => Hello! -->
+```
 
 On this example, you can create a stylized custom button and use on html how you want
 
@@ -27,7 +50,16 @@ On this example, you can create a stylized custom button and use on html how you
 
 Add the script tag below:
 
-![Adding Frag Components to a page](./public/add-components.svg)
+```html
+<script type="module">
+  import { addFragComponents, createFragComponents } from "./frag-components/index.js"
+  import { button, title } from ". /components/index.js";
+
+  const components = [new button(), new title()];
+  addFragComponents (components);
+  createFragComponents ();
+<script>
+```
 
 You can import the components classes and add on array inside the addFragComponents method
 
@@ -41,7 +73,19 @@ To add new page you need to create html file inside the pages folder
 
 ### Referencing files
 
-![Frag Router Examples](./public/frag-router-examples.svg)
+```js
+// To refer a file inside node_modules
+import { createFragComponents } from "./frag-components/index.js";
+
+// To refer a file inside public
+<img src="./image.svg" alt="My Image" />;
+
+// To refer a file inside sc
+import { button, title } from "./components/index.js";
+
+// To open other page
+window.open("./page", "_self");
+```
 
 - To refer a file you need to use './' with the absolute path
 - Node_modules, src and public folder are roots
@@ -49,7 +93,29 @@ To add new page you need to create html file inside the pages folder
 
 ## Getting Element Inside The Component
 
-![Getting Element Inside The Component](./public/getting-element.svg)
+```js
+export class screen {
+  id = "screen-id";
+  props = [];
+  style = [". /screens/screen/style.css"];
+
+  script() {
+    window.onload = (event) => {
+      const host = document.getElementById("screen-id");
+      const shadowRoot = host.shadowRoot;
+      const myTitle = shadowRoot.getElementById("my-title-id");
+      myTitle.setAttribute("text", "Frag Components");
+    };
+    return "screen-script"; // Unique script id is required
+  }
+
+  html(props) {
+    return `<div class="main-containen">
+              <app-title id="my-title-id"/>
+            <div>`;
+  }
+}
+```
 
 ## Getting Started
 
